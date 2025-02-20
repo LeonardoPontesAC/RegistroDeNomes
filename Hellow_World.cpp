@@ -17,7 +17,7 @@ int registro(){
 	
 	while(volta==1){
 	
-		printf("Digite o CPF a ser cadastrado: ");
+		printf(" Digite o CPF a ser cadastrado: ");
 		scanf("%s", cpf);
 		
 		strcpy(arquivo, cpf); //copia os valores das string
@@ -32,7 +32,7 @@ int registro(){
 		fprintf(file, ", ");
 		fclose(file);
 		
-		printf("Digite o nome a ser cadastrado: ");
+		printf(" Digite o nome a ser cadastrado: ");
 		scanf("%s", nome);
 		
 		file = fopen(arquivo, "a"); //abre o arquivo para editar
@@ -43,7 +43,7 @@ int registro(){
 		fprintf(file, " ");
 		fclose(file);
 		
-		printf("Digite o sobrenome a ser cadastrado: ");
+		printf(" Digite o sobrenome a ser cadastrado: ");
 		scanf("%s", sobrenome);
 		
 		file = fopen(arquivo, "a");
@@ -54,7 +54,7 @@ int registro(){
 		fprintf(file, ", ");
 		fclose(file);
 		
-		printf("Digite o cargo a ser cadastrado: ");
+		printf(" Digite o cargo a ser cadastrado: ");
 		scanf("%s", cargo);
 		
 		file = fopen(arquivo, "a");
@@ -68,10 +68,8 @@ int registro(){
 		printf(" 1 - SIM \n");
 		printf(" 2 - NÃO \n");
 		scanf("%d", &volta);
-		system("cls");
-	
-	}
-	
+		system("cls");	
+	}	
 }
 
 int consulta(){
@@ -110,10 +108,8 @@ int consulta(){
 		printf(" 1 - SIM \n");
 		printf(" 2 - NÃO \n");
 		scanf("%d", &volta);
-		system("cls");
-		
-	}
-		
+		system("cls");	
+	}		
 }
 
 int deletar(){
@@ -149,10 +145,13 @@ int deletar(){
 		system("cls");
 	}
 }
+	
+
 
 int main(){
 	int opcao=0;
 	int laco=1;
+	int sair=0;
 	
 	for(laco=1;laco=1;){
 	
@@ -165,6 +164,7 @@ int main(){
 		printf("	1 - Registrar nome \n");
 		printf("	2 - Consultar nome \n");
 		printf("	3 - Deletar nome \n"); // ou /t
+		printf("	4 - Sair \n");
 		printf("\n Opção:");
 		
 		scanf("%d", &opcao); //"%d" para ler variavel inteira
@@ -184,12 +184,28 @@ int main(){
 			deletar();
 			break;
 			
+			case 4:
+			printf(" Deseja realmente sair do programa? \n");
+			printf(" 1 - SIM \n");
+			printf(" 2 - NÃO \n");
+			scanf("%d", &sair);
+			system("cls");
+			
+			if(sair == 2){
+				printf("");
+				system("cls");
+			}
+			else{
+				printf(" Volte sempre! \n");
+				return 0; //quebra o código e finaliza o programa
+			}
+			break;
+			
 			default:
-			printf("Opção invalida!!! \n");
+			printf(" Opção invalida!!! \n");
 			system("pause");
 			break;
-		}
-		
+		}	
 	}
 	printf("\n\n\n\n Esse Software pertence a Miyako Vollerei \n\n\n\n");
 }
