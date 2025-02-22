@@ -95,7 +95,7 @@ int consulta(){
 		
 		while(fgets(conteudo, 200, file) != NULL){
 			printf("\n Usuário localizado: \n\n");
-			printf("%s", conteudo);
+			printf(" %s", conteudo);
 			printf("\n\n");
 		}
 		
@@ -152,60 +152,75 @@ int main(){
 	int opcao=0;
 	int laco=1;
 	int sair=0;
+	char senhadigitada[]="a";
+	int comparacao; // variável para salvar o resultado do strcmp
 	
-	for(laco=1;laco=1;){
+	setlocale(LC_ALL, "Portuguese"); //definição da lingua
 	
-		system("cls");
+	printf("\n Cartório da EBAC \n");
+	printf("\n Login de administrador \n");
+	printf(" Digite sua senha: ");
+	scanf("%s", senhadigitada);
 	
-		setlocale(LC_ALL, "Portuguese"); //definição da lingua
+	comparacao = strcmp(senhadigitada, "admin"); // compara dois valores e retorna um número
+	
+	if(comparacao == 0){
+	
+		for(laco=1;laco=1;){
 		
-		printf("\n Cartório da EBAC \n");
-		printf("\n Ecolha a opção desejada no menu: \n \n");
-		printf("	1 - Registrar nome \n");
-		printf("	2 - Consultar nome \n");
-		printf("	3 - Deletar nome \n"); // ou /t
-		printf("	4 - Sair \n");
-		printf("\n Opção:");
-		
-		scanf("%d", &opcao); //"%d" para ler variavel inteira
-		
-		system("cls"); //limpa a tela
-		
-		switch(opcao){
-			case 1:
-			registro();
-			break;
-			
-			case 2:
-			consulta();
-			break;
-			
-			case 3:
-			deletar();
-			break;
-			
-			case 4:
-			printf(" Deseja realmente sair do programa? \n");
-			printf(" 1 - SIM \n");
-			printf(" 2 - NÃO \n");
-			scanf("%d", &sair);
 			system("cls");
 			
-			if(sair == 2){
-				printf("");
-				system("cls");
-			}
-			else{
-				printf(" Volte sempre! \n");
-				return 0; //quebra o código e finaliza o programa
-			}
-			break;
+			printf("\n Cartório da EBAC \n");
+			printf("\n Ecolha a opção desejada no menu: \n \n");
+			printf("	1 - Registrar nome \n");
+			printf("	2 - Consultar nome \n");
+			printf("	3 - Deletar nome \n"); // ou /t
+			printf("	4 - Sair \n");
+			printf("\n Opção:");
 			
-			default:
-			printf(" Opção invalida!!! \n");
-			system("pause");
-			break;
-		}	
+			scanf("%d", &opcao); //"%d" para ler variavel inteira
+			
+			system("cls"); //limpa a tela
+			
+			switch(opcao){
+				case 1:
+				registro();
+				break;
+				
+				case 2:
+				consulta();
+				break;
+				
+				case 3:
+				deletar();
+				break;
+				
+				case 4:
+				printf("\n Deseja realmente sair do programa? \n");
+				printf(" 1 - SIM \n");
+				printf(" 2 - NÃO \n");
+				scanf("%d", &sair);
+				system("cls");
+				
+				if(sair == 2){
+					printf("");
+					system("cls");
+				}
+				else{
+					printf("\n Volte sempre! \n");
+					return 0; //quebra o código e finaliza o programa
+				}
+				break;
+				
+				default:
+				printf("\n Opção invalida!!! \n");
+				system("pause");
+				break;
+			}	
+		}
+		printf("\n\n\n\n Esse Software pertence a Miyako Vollerei \n\n\n\n");
 	}
-	printf("\n\n\n\n Esse Software pertence a Miyako Vollerei \n\n\n\n");
+	else{
+		printf("\n Senha inválida! \n");
+	}
 }
